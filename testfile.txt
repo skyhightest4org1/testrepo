@@ -1,2 +1,1 @@
-gold mine
-gold winner
+my new file contents
