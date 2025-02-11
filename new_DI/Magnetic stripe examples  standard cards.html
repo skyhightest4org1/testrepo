@@ -1,0 +1,489 @@
+
+<!-- saved from url=(0054)http://www.gae.ucm.es/~padilla/extrawork/magexam1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Magnetic stripe examples: standard cards</title>
+
+</head>
+
+
+<body>
+
+<center><h1>Magnetic stripe examples: standard cards</h1></center>
+<center><h4>by</h4></center>
+<center><h3>L. Padilla</h3></center><p>
+
+</p><dd>This page shows the contents (and its possible meaning) of some standard
+magnetic stripe cards, see <a href="http://www.gae.ucm.es/~padilla/extrawork/tracks.html">track formats</a> for
+additional details. Part of the information has been changed for obvious
+reasons. By now you can find:<p>
+
+Note:<br>
+</p></dd><dd>*** means digits which change randomly from card to card.<br>
+</dd><dd>XXX means digits which appear repeatedly in the same card.<p>
+
+</p><ul>
+<li>Caja de Madrid ATM card (VISA logo):<br><br>
+
+  <ul>
+  <li>Embossing:
+<pre>Card holder : L. PADILLA
+Card number*: 1234 5678 9012 3445
+Expiration  : 01/99
+</pre>
+
+<dd>*The card number (PAN) uses, as most of the credit and debit cards, the
+Luhn Check Digit Algorithm. Valid numbers must comply with the following rule.
+If the card number has an even number of digits, then the adding up of the even
+numbered digits plus the odd numbered digits doubled (minus 9 if the doubled
+digit is greater than 9) has to be multiple of 10. If the card number has an
+odd number of digits, then the same applies but doubling even (instead of odd)
+numbered digits. Using the example above:<br>
+</dd><dd>2 x 1 + 2 + 2 x 3 + 4 + 2 x 5 - 9 + 6 + 2 x 7 - 9 + 8 + 2 x 9 - 9 + 0 + 2 x
+1 + 2 + 2 x 3 + 4 + 2 x 4 + 5 = 70 and therefore the number in the example is a
+valid number for a credit or debit card.<br>
+</dd><dd>Actually is the other way round, the last digit of the card number is
+calculated so that the whole number complies with Luhn Check, therefore the
+last digit is called check digit.<br><br>
+
+  <li>Track 1:
+<pre>%B1234567890123445^PADILLA/L.                ^99011200000000000000**XXX******?*
+^^^               ^^                         ^^   ^       ^         ^        ^^
+|||_ Card number  ||_ Card holder            ||   |       |         |_ CVV** ||_ LRC
+||_ Format code   |_ Field separator         ||   |       |                  |_ End sentinel
+|_ Start sentinel           Field separator _||   |       |_ Discretionary data
+                                  Expiration _|   |_ Service code
+</pre>
+
+  </li><li>Track 2:
+<pre>;1234567890123445=99011200XXXX00000000?*
+^^               ^^   ^   ^           ^^
+||_ Card number  ||   |   |_ Encrypted||_ LRC
+|_ Start sentinel||   |      PIN***   |_ End sentinel
+                 ||   |_ Service code
+Field separator _||_ Expiration
+</pre>
+
+  </li><li>Track 3:
+<pre>;011234567890123445=724724100000000000030300XXXX040400099010=************************==1=0000000000000000?*
+^^ ^               ^^  ^  ^            ^ ^  ^   ^^ ^   ^    ^^                       ^^^^^               ^^
+|| |               ||  |  |_ Currency  | |  |   || |   |    ||_ First subsidiary     |||||_ Additional   ||
+|| |               ||  |     exponent  | |  |   || |   |    |   account number (FSAN)||||   data         ||
+|| |_ Card number  ||  |_ Currency     | |  |   || |   |    |_ Field separator       ||||_ Field         ||_ LRC
+||_ Format code    ||     (Peseta)     | |  |   || |   |_ Expiration                 |||   separator     |_ End sentinel
+|_ Start sentinel  ||_ Country (Spain) | |  |   || |_ FSAN service restriction       |||_ Relay marker
+                   |_ Field separator  | |  |   ||_ PAN service restriction          ||_ Field separator
+                         Cycle length _| |  |   |_ Interchange control               |_ Field separator
+                            Retry count _|  |_ Encrypted PIN***
+</pre>
+
+<dd>**The CVV (Card Verification Value) is a cryptographic signature of the
+card number, the expiration date and the service code to verify the integrity
+of these data in the track. It is calculated with an algorithm similar to that
+of PIN encryption.<br><br>
+
+</dd><dd>***The PIN (Personal Identification Number) is basically encrypted as
+follows. The card number is taken as an hexadecimal number and is encrypted
+with the DES algorithm using a secret key, which is called the "PIN key". The
+first four digits are decimalized (i.e., A = 0, B = 1, ...) and are called the
+"natural PIN". An offset is added (without carry) to the natural PIN in order
+to obtain the customer PIN. The customer PIN may be changed but the natural PIN
+cannot. The offset is what is written in track 3 and I called the "encrypted
+PIN". Here you have an example:<br>
+</dd><dd>Card number: 1234567890123445hex input for DES.<br>
+</dd><dd>PIN key: 0123456789ABCDEFhex key for DES.<br>
+</dd><dd>Encrypted card number: 9A466AD30DFE0381hex output from DES.<br>
+</dd><dd>Natural PIN: 9046.<br>
+</dd><dd>Offset: 2298 (this number is written on track 3).<br>
+</dd><dd>Customer PIN: 1234.<br>
+</dd><dd>See also the <a href="http://axion.physics.ubc.ca/atm.html">original VISA
+scheme</a> and <a href="http://www.gae.ucm.es/~padilla/extrawork/magnews.txt">a discussion on other systems.</a> See the
+two much more detailed and complete documents linked in my <a href="http://www.gae.ucm.es/~padilla/extrawork/stripe.html">main page</a> for magnetic stripe cards.
+  </dd></li></dd></li></ul><p>
+
+</p></li><li>Caja Madrid VISA or VISA Electron card:<br><br>
+
+  <ul>
+  <li>Embossing or printing:
+<pre>Card holder: L. PADILLA
+Card number: 1234 5678 9012 3445
+Expiration : 01/99
+</pre>
+
+  </li><li>Track 1:
+<pre>%B1234567890123445^PADILLA/L.                ^99011X100000*000000000XXX000000?*
+^^^               ^^                         ^^   ^       ^         ^        ^^
+|||_ Card number  ||_ Card holder            ||   |       |         |_ CVV   ||_ LRC
+||_ Format code   |_ Field separator         ||   |       |                  |_ End sentinel
+|_ Start sentinel           Field separator _||   |       |_ Discretionary data
+                                  Expiration _|   |_ Service code: 101 for VISA and 121 for VISA Electron
+</pre>
+
+  </li><li>Track 2:
+<pre>;1234567890123445=99011X10XXXXXXX00000?*
+^^               ^^   ^   ^   ^       ^^
+||_ Card number  ||   |   |   |_ CVV  ||_ LRC
+|_ Start sentinel||   |   |           |_ End sentinel
+Field separator _||   |   |_ Encrypted PIN (except if duplicate card)
+      Expiration _|   |_ Service code: 101 for VISA and 121 for VISA Electron
+</pre>
+
+  </li><li>Track 3:
+<pre>;011234567890123445=724724000000000****00300XXXX020200099010=********************==1=100000000000000000**?*
+^^ ^               ^^  ^           ^     ^  ^   ^^ ^   ^    ^^                   ^^^^^                   ^^
+|| |               ||  |_ Currency |     |  |   || |   |    ||_ FSAN             |||||                   ||
+|| |_ Card number  ||     (Peseta) |     |  |   || |   |    |_ Field separator   |||||_ Additional data  ||_ LRC
+||_ Format code    ||_ Country     |     |  |   || |   |_ Expiration             ||||_ Field separator   |_ End sentinel
+|_ Start sentinel  |   (Spain)     |     |  |   || |_ FSAN service restriction   |||_ Relay marker
+                   |_ Field        |     |  |   ||_ PAN service restriction      ||_ Field separator
+                      separator    |     |  |   |_ Interchange control           |_ Field separator
+                    Validity date _|     |  |_ Encrypted PIN (except if duplicate card)
+              (except if duplicate card) |_ Retry count
+</pre>
+  </li></ul><p>
+
+</p></li><li>Uno-e VISA Electron card:<br><br>
+
+  <ul>
+  <li>Printing:
+<pre>Card holder: L. PADILLA
+Card number: 1234 5678 9012 3445
+Expiration : 01/99
+</pre>
+
+  </li><li>Track 1:
+<pre>%B1234567890123445^PADILLA/L.                ^99011211XXXX*000000**0XXX0**000?*
+^^^               ^^                         ^^   ^  ^^   ^         ^        ^^
+|||_ Card number  ||_ Card holder            ||   |  ||   |_ Discr. |_ CVV   ||_ LRC
+||_ Format code   |_ Field separator         ||   |  ||      data            |_ End sentinel
+|_ Start sentinel           Field separator _||   |  ||_ PVV*
+                                  Expiration _|   |  |_ PVV key indicator
+                                                  |_ Service code
+</pre>
+
+  </li><li>Track 2:
+<pre>;1234567890123445=99011211XXXXXXX00***?*
+^^               ^^   ^  ^^   ^       ^^
+||_ Card number  ||   |  ||   |_ CVV  ||_ LRC
+|_ Start sentinel||   |  ||_ PVV*     |_ End sentinel
+Field separator _||   |  |_ PVV key indicator
+      Expiration _|   |_ Service code
+</pre>
+
+  </li><li>Track 3:
+<pre>;011234567890123445=000978100000000****8330*0000920000099010=************************==1=0000000*00000000?*
+^^ ^               ^   ^  ^        ^   ^ ^      ^^     ^    ^^                       ^^^^^               ^^
+|| |               |   |  |_ Curr. |   | |_Retry||     |    ||_ FSAN                 |||||_ Additional   ||_ LRC
+|| |_ Card number  | Curr.   expon.|   |   count||     |    |_ Field separator       ||||   data         |_ End sentinel
+||_ Format code    | (Euro)        |   |        ||     |_ Expiration                 ||||_ Field separator
+|_ Start sentinel  |_ Field        |   |_ Cycle ||_ PAN service restriction          |||_ Relay marker
+                      separator    |      length|_ Interchange control               ||_ Field separator
+                    Validity date _|                                                 |_ Field separator
+</pre>
+
+<dd>*The PVV (PIN Verification Value) is another way of PIN encryption. It is
+calculated with an algorithm similar to that described above.
+  </dd></li></ul><p>
+
+</p></li><li>Caja Bilbao Vizcaya ATM card (MasterCard logo):<br><br>
+
+  <ul>
+  <li>Embossing:
+<pre>Card holder: L. PADILLA
+Card number: 1234 5678 9012 3445
+Expiration : 01/99
+</pre>
+
+  </li><li>Track 1:
+<pre>%B1234567890123445^PADILLA/L.                ^990110100000000XXX****XXX******?*
+^^^               ^^                         ^^   ^       ^  ^      ^        ^^
+|||_ Card number  ||_ Card holder            ||   |       |  |      |_ CVV   ||_ LRC
+||_ Format code   |_ Field separator         ||   |       |  |_ Number       |_ End sentinel
+|_ Start sentinel           Field separator _||   |       |_ Discretionary data
+                                  Expiration _|   |_ Service code
+</pre>
+
+  </li><li>Track 2:
+<pre>;1234567890123445=990110100000XXXXXX00?*
+^^               ^^   ^       ^  ^    ^^
+||_ Card number  ||   |  CVV _|  |    ||_ LRC
+|_ Start sentinel||   |  Number _|    |_ End sentinel
+                 ||   |_ Service code
+Field separator _||_ Expiration
+</pre>
+
+  </li><li>Track 3:
+<pre>;011234567890123445=7247241000000000000001000000040400099010=************************==0=0002000000******?*
+^^ ^               ^^  ^  ^              ^      ^^ ^   ^    ^^                       ^^^^^               ^^
+|| |_ Card number  ||  |  |_ Currency    |      || |   |    ||_ First subsidiary     |||||_ Additional   ||
+||_ Format code    ||  |     exponent    |      || |   |    |   account number (FSAN)||||   data         ||
+|_ Start sentinel  ||  |_ Currency       |      || |   |    |_ Field separator       ||||_ Field         ||_ LRC
+  Field separator _||     (Peseta)       |      || |   |_ Expiration                 |||   separator     |_ End sentinel
+                    |_ Country (Spain)   |      || |_ FSAN service restriction       |||_ Relay marker
+                            Retry count _|      ||_ PAN service restriction          ||_ Field separator
+                                                |_ Interchange control               |_ Field separator
+</pre>
+  </li></ul><p>
+
+</p></li><li>Sanitas (private sanitary coverage) card:<br><br>
+
+  <ul>
+  <li>Embossing:
+<pre>Card holder: L. PADILLA
+Card number: 999999 8888 777 666 5
+Validity   : 01/98 - 02/99
+</pre>
+
+  </li><li>Track 1:
+<pre>%BXXXXXX99999900000888877=L. PADILLA                    =666599029801?*
+^^^     ^          ^     ^^                             ^^   ^       ^^
+|||     |          |     ||_ Card holder                ||   |       ||_ LRC
+|||     |          |     |_ Field separator             ||   |       |_ End sentinel
+|||     |          |_ Card number(2)                    ||   |_ Validity
+|||     |_ Card number(1)              Field separator _||_ Card number(3)
+|||_ Number
+||_ Format code
+|_ Start sentinel
+</pre>
+
+  </li><li>Track 2:
+<pre>;XXXXXX999999000008888777=666990259801?*
+^^     ^          ^      ^^  ^   ^^   ^^
+||     |          |      ||  |   ||   ||_ LRC
+||     |          |      ||  |   ||   |_ End sentinel
+||     |          |      ||  |   ||_ Validity(2)
+||     |          |      ||  |   |_ Card number(4)
+||     |          |      ||  |_ Validity(1)
+||     |          |      ||_ Card number(3)
+||     |          |      |_ Field separator
+||     |          |_ Card number(2)
+||     |_ Card number(1)
+||_ Number
+|_ Start sentinel
+</pre>
+
+  </li><li>Track 3:<br><br>
+  Empty (all zeros)
+  </li></ul><p>
+
+</p></li><li>Social security card:<br><br>
+
+  <ul>
+  <li>Embossing:
+<pre>Card holder: L. PADILLA
+Card number: 999999 PDVS123456789012
+Expiration : 03/99
+</pre>
+
+  </li><li>Track 1:
+<pre>%B999999^PDVS123456789012^PADILLA L.                    ^0X0000399           ?*
+^^^     ^^^^^^           ^^                             ^ ^   ^              ^^
+|||     ||||||_ Card     ||_ Card holder                | |   |_ Expiration  ||_ LRC
+|||     |||||   number(2)|_ Field separator (formerly =)| |                  |_ End sentinel
+|||     |||||_ 3rd letter from 2nd surname              | |_ = 1 -&gt; Non pensioner
+|||     ||||_ 1st letter from 2nd surname               |    = 2 -&gt; Pensioner
+|||     |||_ 3rd letter from 1st surname                |_ Field separator (formerly =)
+|||     ||_ 1st letter from 1st surname
+|||     |_ Field separator (formerly =)
+|||_ Card number(1)
+||_ Format code
+|_ Start sentinel
+</pre>
+
+  </li><li>Track 2:
+<pre>;999999554749123456789012=00X990300000?*
+^^     ^  ^  ^           ^  ^^        ^^
+||     |  |  |_ Card     |  ||        ||_ LRC
+||     |  |     number(2)|  ||        |_ End sentinel
+||     |  |              |  ||_ Expiration
+||     |  |              |  |_ See above
+||     |  |              |_ Field separator
+||     |  |_ = 30 x (#V - 30) + #S - 22, where #X means decimal value of character X in the ALPHA format (#A = 33, #B = 34, ...)
+||     |_ = 30 x (#P - 30) + #D - 22, where P, D, V and S come from the card number (see above)
+||_ Card number(1)
+|_ Start sentinel
+</pre>
+
+  </li><li>Track 3:<br><br>
+  Empty (all zeros) or not present
+  </li></ul><p>
+
+</p></li><li>Vitalicio-Salud (private sanitary coverage) card:<br><br>
+
+  <ul>
+  <li>Embossing:
+<pre>Card holder: L. PADILLA
+Card number: 0123456789
+Validity   : 04/99 - 12/99
+</pre>
+
+  </li><li>Track 1:
+<pre>%0123456789L. PADILLA                ?*
+^^         ^                         ^^
+||         |_ Card holder            ||_ LRC
+||_ Card number                      |_ End sentinel
+|_ Start sentinel
+</pre>
+
+  </li><li>Track 2:
+<pre>;0123456789?*
+^^         ^^
+||_ Card   ||_ LRC
+|   number |_ End sentinel
+|_ Start sentinel
+</pre>
+
+  </li><li>Track 3:<br><br>
+  Empty (all zeros)
+  </li></ul><p>
+
+</p></li><li>Ciudad de las Artes y las Ciencias pass ticket:<br><br>
+
+  <ul>
+  <li>Printing:<br><br>
+  Date: 16/12/00 20:00<br>
+  Number: 010100381781<br><br>
+
+  </li><li>Track 1:<br><br>
+  Not present<br><br>
+
+  </li><li>Track 2:<br><br>
+<pre>;012001120100381781?*
+^ ^       ^        ^^
+| |_ Date?|        ||_ LRC
+|         |        |_ End sentinel
+|         |_ Partial number
+|_ Start sentinel
+</pre>
+
+  </li><li>Track 3:<br><br>
+  Not present
+  </li></ul><p>
+
+</p></li><li>Graphispag93 exhibitor ID card:<br><br>
+
+  <ul>
+  <li>Printing:<br><br>
+  Card holder: RUEDA, J<br><br>
+
+  </li><li>Track 1:
+<pre>%RUEDA, J?*
+^^       ^^
+||       ||_ LRC
+||       |_ End sentinel
+||_ Card holder
+|_ Start sentinel
+</pre>
+
+  </li><li>Track 2:<br><br>
+  Not present<br><br>
+
+  </li><li>Track 3:<br><br>
+  Not present
+  </li></ul><p>
+
+</p></li><li>Carrefour gas station discount ticket:<br><br>
+
+  <ul>
+  <li>Printing:<br><br>
+  None<br><br>
+
+  </li><li>Track 1:<br><br>
+  Not present<br><br>
+
+  </li><li>Track 2:<br><br>
+<pre>;9999989999999999=01015990000000000000?*
+^                ^                    ^^
+|_ Start sentinel|_ Field separator   ||_ LRC
+                                      |_ End sentinel
+</pre>
+
+  </li><li>Track 3:<br><br>
+  Not present
+  </li></ul><p>
+
+</p></li><li>Madrid public parking ticket:<br><br>
+
+  <ul>
+  <li>Printing:<br><br>
+  Date: 14:31 06-02-98<br><br>
+
+  </li><li>Track 1:<br><br>
+  Not present<br><br>
+
+  </li><li>Track 2:<br><br>
+<pre>;11431060298?*
+^ ^         ^^
+| |_ Date   ||_ LRC
+|_ Start    |_ End sentinel
+   sentinel
+</pre>
+
+  </li><li>Track 3:<br><br>
+  Not present
+  </li></ul><p>
+
+</p></li><li>Parque Ferial Juan Carlos I parking ticket:<br><br>
+
+  <ul>
+  <li>Printing:<br><br>
+  Date: 27/02/2003 13:32:05<br>
+  String: 01044 9 35397 P01<br><br>
+
+  </li><li>Track 1:<br><br>
+  Not present<br><br>
+
+  </li><li>Track 2:<br><br>
+<pre>;304601=0534177205044000000000000100?*
+^      ^  ********^                 ^^
+|      |          |_ Digits 3 to 5  ||
+|      |             of string      ||
+|      |_ Field separator           ||_ LRC
+|_ Start sentinel                   |_ End sentinel
+</pre>
+
+  </li><li>Track 3:<br><br>
+  Not present
+  </li></ul><p>
+
+</p></li><li>Val Thorens parking card:<br><br>
+
+  <ul>
+  <li>Printing:
+<pre>Number  : 11069
+Parking : P0
+Validity: 02/01/96 - 06/01/96
+</pre>
+
+  </li><li>Track 1:<br><br>
+  Not present<br><br>
+
+  </li><li>Track 2:
+<pre>;&gt;4155594&gt;4713000110=11106909912310000?*
+^                   ^ ^               ^^
+|_ Start sentinel   | |_ Number       ||_ LRC
+                    |_ Field separator|_ End sentinel
+</pre>
+
+Can you decode the rest of the printed information?<br><br>
+
+  </li><li>Track 3:<br><br>
+  Not present
+  </li></ul><p>
+</p></li></ul><p>
+
+</p><hr>
+<address>E-mail: <a href="mailto:padilla at domain gae ucm es">padilla at
+domain "gae ucm es"</a> (<a href="http://www.gae.ucm.es/~padilla/pgpkey.txt">my PGP/GPG public key</a>)
+</address>
+<i>First version: 13-Mar-1997, <b>last update: 29-Mar-2004</b></i><br>
+<i>This link: http://www.gae.ucm.es/~padilla/extrawork/magexam1.html</i><br>
+
+<img src="./Magnetic stripe examples  standard cards_files/line2.gif" alt="Color line"><br>
+<a href="http://www.gae.ucm.es/~padilla/extrawork/magread.html"><img src="./Magnetic stripe examples  standard cards_files/back.gif" border="0" align="middle" alt="Back"> Go to the parent page: Magnetic stripe reader.</a>
+
+
+
+
+
+</dd></body></html>
