@@ -1,0 +1,179 @@
+Received: from BLUPR0701MB1601.namprd07.prod.outlook.com (10.163.84.150) by
+ BLUPR0701MB1603.namprd07.prod.outlook.com (10.163.84.152) with Microsoft SMTP
+ Server (version=TLS1_0, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384) id
+ 15.1.587.13 via Mailbox Transport; Tue, 6 Sep 2016 08:57:08 +0000
+Received: from CO2PR07MB2517.namprd07.prod.outlook.com (10.166.200.151) by
+ BLUPR0701MB1601.namprd07.prod.outlook.com (10.163.84.150) with Microsoft SMTP
+ Server (version=TLS1_0, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384) id
+ 15.1.587.13; Tue, 6 Sep 2016 08:57:06 +0000
+Authentication-Results: skyhighnetworks.com; dkim=none (message not signed)
+ header.d=none;skyhighnetworks.com; dmarc=none action=none
+ header.from=skyhighnetworks.com;
+Received: from CO2PR07MB2519.namprd07.prod.outlook.com (10.166.201.6) by
+ CO2PR07MB2517.namprd07.prod.outlook.com (10.166.200.151) with Microsoft SMTP
+ Server (version=TLS1_0, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384) id
+ 15.1.587.13; Tue, 6 Sep 2016 08:57:04 +0000
+Received: from CO2PR07MB2519.namprd07.prod.outlook.com ([10.166.201.6]) by
+ CO2PR07MB2519.namprd07.prod.outlook.com ([10.166.201.6]) with mapi id
+ 15.01.0609.013; Tue, 6 Sep 2016 08:57:04 +0000
+From: Ashish Khandelwal <ashishk@skyhighnetworks.com>
+To: shn-api-team-all <shn-api-team-all@skyhighnetworks.com>
+Subject: API Weekly QA Status
+Thread-Topic: API Weekly QA Status
+Thread-Index: AQHSCByja6Q0kvUJkEmKVyqfj9q61w==
+X-MS-Exchange-MessageSentRepresentingType: 1
+Date: Tue, 6 Sep 2016 08:57:04 +0000
+Message-ID: <D3F482B6.4AD81%ashishk@skyhighnetworks.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator: <D3F482B6.4AD81%ashishk@skyhighnetworks.com>
+user-agent: Microsoft-MacOutlook/14.5.5.150821
+MIME-Version: 1.0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-Organization-AuthSource: CO2PR07MB2519.namprd07.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-Originating-IP: [106.51.21.146]
+X-MS-Exchange-Organization-Network-Message-Id: 72c8e10a-2980-41e3-9b94-08d3d633c65d
+Return-Path: ashishk@skyhighnetworks.com
+X-MS-Office365-Filtering-Correlation-Id: 72c8e10a-2980-41e3-9b94-08d3d633c65d
+X-Microsoft-Exchange-Diagnostics:
+	1;CO2PR07MB2517;2:UFZj6l+LqoFEmk1L+/D4Zwla2n5AuuCB2wfZrxjk5XfmwksljZurAaN7zLYnXEvLE6Y2eTMVLm7/BaPzEqm4G49v3yYGGyBLFV3Ya+wWoDn1NI2Y/cd8jhHrH3oEzzFTUeIgciZJ4bu7YTNPW7SmPVattsimqvrnUZm5MQNopL52a2+BcKJuKq9rrJ0CvPHH;3:uuzGVNbzz5AWcCqAOZyENla/SnOlG9huvpxcenM+mkHU9oSoiQc4rVH2uSsz3iyu04x2LioqQ8tfbhoROhHm7BaBV/GHAlNmbX4jdrsQNcdGh+86InLxVapqTborSNOf;25:sJpL0MeMBIwDKSA3qwIH24wKqBlP4mMwnapwiVK8A75Gnr6rC9/mo9gDlpARHsUkbLI2TK4eNEDdNysZp4vFvWqw8kQTA3ZOSa95bs68d6hWEawZil+l47wKws//d6sqXQzG5Uj47YKt3QZxwdxTKXgcpg3iaPImL459KmqGltRxl2L0UGquUOe8OKG7YpE6z8bTh9cvUpBtaneDJLF0zO0NUsnvWYeriCC1hZLgm50dbKy3EKuLdUpqo/eRoH8WeG9GYKWWWnDXv6PGEkMJnigNoypXirOqI43UQXLw/Se22O4UjlCRrlqzgDsccaF3Ipp/Oawfx9U/GboUZLImj8HSfDRI4gDDk0Rju0PKQIajvkzjGOR+73FZhuT65b0Qt9wgsMJ28V5fapnI5Opp0w==;31:to4O41Zgkwzr6b8RV5vbco4If9+JIExkOsLFbSbdmh3hUP/46cnGblJGEAc2GbPrK2Fhrn9Zu4FVqvXHmwFTWH54k6QGr2qULe0yAyEp9HeygSfUKzdmlVmXzofCykeuiYWqpQBT/AhtJJR8kJO8saU7xuAZbAhb3O7nsbLNB5KafeptORCZvojZ46qmwUzJPyFCgutTrOz63j4ox/bkpMnyed8Q7IMDn7Y60OyCVMU=
+X-Microsoft-Antispam: UriScan:;BCL:0;PCL:0;RULEID:;SRVR:CO2PR07MB2517;
+X-MS-Exchange-Organization-AVStamp-Service: 1.0
+X-Microsoft-Exchange-Diagnostics: 1;CO2PR07MB2517;20:PW9gnewJLX5o6yKUb/SwPB4fKUJ6/Kmd4Yw0G7SUxUyeDqP54Y12KcIwmKWux0+wP98PMJ9RPNSuZXaNVN665EIDz/SvkmpR4JR65mwnUxHT32p1hl3vQoHyMM+CCjvbCO6ZkObTgstbqwh6vV5a1kUx0gghYialzxXZ5c5wRslV6lP6pGFmkX3pFvJbCXv2qbPjnRCL1KblCiodFn41pCIka4sN8fSqrx82wO1eACzvLy+zX0oQI7Im0bwwREDc07L3O3zSoWNcr9Ra+GKu/qdy3uz9vhIR6i7GgFrZorgiHj2xcSwqtnnKNIiW5UwhegsmpUQESh6yi5qSm0FfhyG7mw6U6zJmsMqqoqDFyECCEbVTz1UVmzaxzkgxEdh7lQly3tXbyqLq38QJVs+aLRvVDCy3lS0/gWxCibbXxHI=;4:LMXMIlbXDR0OgL95oTkIDXcXDk5pp43s6v/kLGz5ttOG0zBibEf9nhRCCIibaeMed2kBIVmMb6S/DP35E4tKKenXO/kh4CITR+9D+Le3+X7vza9iMMtGBrvoN6b9KGFL2sUnwVYw3EkUGeKwajGE0oq7gvoPgMeCDuho+ZoYwtlsE61LjIxNHnXomkvZfejxiZTC6bWISExMwPSBj4HF8Cq3vmtH1gzqBDtKhsjPnZW4/4tYpheYd6PTaZUc1nlMspHr9Gy+ACVDRjoeUvqp2Gz/ukD39x8tjoZh4LEWwD7HOYLqKDtDIE8Y5JHTDDRQoj6TDCIo0lEG61KNEFBu/5EaRHVSzBfcMRVRvDA9RO9MhXu38kfcK6bm6u0KbMUv083a1SkNsFzadEMJdPIXc038d5Je/DL0Ba1xTthsaqk=
+X-Exchange-Antispam-Report-Test: UriScan:(121884430023969);
+X-Exchange-Antispam-Report-CFA-Test: BCL:0;PCL:0;RULEID:(9101524098)(601004)(2401047)(8121501046)(3002001)(10201501046);SRVR:CO2PR07MB2517;BCL:0;PCL:0;RULEID:;SRVR:CO2PR07MB2517;
+X-Forefront-Antispam-Report: SFV:SKI;SFS:;DIR:INB;SFP:;SCL:-1;SRVR:CO2PR07MB2517;H:CO2PR07MB2519.namprd07.prod.outlook.com;FPR:;SPF:None;LANG:en;;SKIP:1;
+X-Microsoft-Exchange-Diagnostics: 1;CO2PR07MB2517;23:gMjY1BhLxnsTSQAImOa9OQSAGcg/t/iorOZqY6vY31rzjQlQCFnZLOxgZBTY03zAmaKkvoCMy4HU+/djo09fIT+CgXU+dza4uajPEeMh53EpKw0fHBRkhigtUBrqKYMEHprDQnJPBxWY1JEGO6JhRc/N727HJH5fQVo9ZefCgX03fVszJkwMM+KI/ZRmvMED;6:rHFYGFnCI7QCUCzcT9UxJCsyHvromkD5kAX+fy68fLkRwzsNE2zzLvq3j54IIgdjJ1FByVzsAhGsF0NfSV9sq29/WQmesFt6XmNrziRxwfTpOygUa6wzWWDesDYE585bO8BJiqhqLySlLZSFtubGQyrN0WVLE1VZqHizcmLYDhN5hieoJ7DMbbJZCepdG6bNcNp/lJnL5L6DHY6V5HYpnn1nxxytZmbCTah+8BRq4moCz4gOpBt7Ioycz731QSWRuxz1lD9o9uN+L70F6y569PWUCE+vyL5vcMLG32oexm8=;5:UWJ2GMQB+PTUf1E9OWi5SxswkYpPDLreKIwQHDUXj2LY8SWlhH64ChfmxhOilz6L44i+ip8Bw6MRvJKavYJ+iGbweR4zoznYO9CNDKZuCW7ChscPS6vH4oI4UeMhBbCphKMG8gVVfWjDkEAEjVkqdQ==;24:Y8CUfu7eS0H9GlnVL7I33GeC6wZiRQFKpTDohNJ2pY3ZvmB6S+legIUrLOt7IRKBBqzl5myUN0V3m2GEuWf3uvhBMqW4XdLEbYW5kCth9q0=
+SpamDiagnosticOutput: 1:0
+X-Microsoft-Exchange-Diagnostics: 1;CO2PR07MB2517;7:0Zzk4hXatCPhOctAKwEsw12UgjV9owwN86qRgt/I9dAFN3UAVehfqlT/hjSdA7Eb61/1oPjNt1at/v5l48/CPPyu2fSYW4ltLGHH2i0W7BDSeD30pIbjJvwKvR0MBn58wo9BDLY/+xKxxHbrBejHQ5QQ1VTZDhQEVuT96CxUJ8o5uGVHt29+jgQu6vR4/TN3nkt53HOs324QCquNjXZuKl+qVvMSeedVmY3JMinMnWHNoUX8bjdg2ntLfXVFNHLa
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Sep 2016 08:57:04.6939
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 2c15f201-22e2-4fdf-a069-579748e19f63
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO2PR07MB2517
+X-Microsoft-Exchange-Diagnostics: 1;BLUPR0701MB1601;2:0Wb0+r5S6hJKnrM6uzj2ceq7kDO3jnZnISN/oLNQ4POsfCtQb942pn1kgugZ6EKzwG85VXk/2c4OgjvPLVZ1ZFJMkaA/JKeyzOmh8mUw8pPN9teqW3WgTt5PE0Je2kCtacyBxnY6EH7YnSDL5BkUMmz0fVBW4mRWPPUHpOj+THdMlkcPq2iU2TX/2NC4NvUr;23:SEyj3yLWOdyTfOmGCz5SC9NqRqUspAbP+FvZMssiH5/P30LoHzyWFVY1zXIsFKbH8PiykLitO+TstKrujQXYJH/ssQo3FkfNv1eQx/9xHUX9CeJZLAGPN41R+D2lHxYJbKIOQXK5VbFaLE5oGPgVSp7HQ4wRHnFy6htjlGolu5gPY+8mfpFJGFc4WgiqwMzI
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.5638089
+X-Microsoft-Exchange-Diagnostics:
+	1;BLUPR0701MB1603;9:KEOjiJHR9kYH+3MUws75ZkfID/AmDxRkNY6Q91fDE2yNMWIcwb7UutuChM6+4z+0pbMdeJETw1s48kz0lNOQrl01SVvwYnPJDTA+W1K7Eue6cGb98XgRABbyW71zR5+iHBo4kZmwM4eGXkJPnLqcAaWw/kdpcw+TeHazlckOU37CBAC1kFnTjW+Mci6l5uiN/DQqUNKcxAGHfO7xCWmBFQ==
+Content-type: multipart/alternative;
+	boundary="B_3556019506_1688964389"
+
+> This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+--B_3556019506_1688964389
+Content-type: text/plain;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+Guys
+
+Here is the weekly QA status :-
+
+3.0.2
+All deployments been done over last week and QA testing is over on these en=
+vironments.
+3.1
+Overall looks red since we are delayed in qualifying stories due to various=
+ reasons like Blocker Bugs/delay in branch cut/3.0.2 validations etc.
+Detailed status as below:-
+
+Provider
+Completed test plan for Custom Client ID story and started basic verificati=
+on. =20
+2 major stories ( Slack Enterprise Support and Sharepoint/Onedrive web opti=
+mization ) are moved out of 3.1 train , however will be QA tested in hardeni=
+ng sprint and will be release as a HF on top of 3.1 . Urgency of these stori=
+es is due to customer commitments.  Expect a separate mail from Syam about t=
+he way we are going to tackle these.
+Completed testing for TP events for Google Drive.
+Sharepoint ODS performance =E2=80=93 in progress. Scripts are ready but tests are=
+ waiting on QAPerf environment.
+Platform
+Sanctioned user group story  =E2=80=93 test planning and cases are written . Basi=
+c testing started with old version of EC , however blocked with latest versi=
+on due to EC blockers
+Policy templates/Metadata story =E2=80=93 test planning done with Test case added=
+. Testing in Progress
+Zeus Performance =E2=80=93 In progress. Had some hiccups last week due to environ=
+ment constraints. @Manoj, please add more if you have anything to add here.
+Ad-Hoc
+Couple of HotFixes been released due to recent AIG Fix/Du-point issue.
+Working with Andreas, Prasida on end to end use cases to be run on Sandbox =
+environment. Coordinating with EP/OPS team for the same.=20
+Thanks
+
+
+
+--B_3556019506_1688964389
+Content-type: text/html;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body style=3D"word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-=
+break: after-white-space; color: rgb(0, 0, 0); font-size: 14px; font-family:=
+ Calibri, sans-serif;">
+<div>Guys</div>
+<div><br>
+</div>
+<div>Here is the weekly QA status :-</div>
+<div><br>
+</div>
+<div><b>3.0.2</b></div>
+<ul>
+<li>All deployments been done over last week and QA testing is over on thes=
+e environments.</li></ul>
+<div><b>3.1</b></div>
+<div>Overall looks red since we are delayed in qualifying stories due to va=
+rious reasons like Blocker Bugs/delay in branch cut/3.0.2 validations etc.</=
+div>
+<div>Detailed status as below:-</div>
+<div><br>
+</div>
+<div><b>Provider</b></div>
+<ul>
+<li>Completed test plan for Custom Client ID story and started basic verifi=
+cation. &nbsp;</li><li>2 major stories ( Slack Enterprise Support and Sharep=
+oint/Onedrive web optimization ) are moved out of 3.1 train , however will b=
+e QA tested in hardening sprint and will be release as a HF on top of 3.1 . =
+Urgency of these stories is due to customer commitments.
+ Expect a separate mail from Syam about the way we are going to tackle thes=
+e.</li><li>Completed testing for TP events for Google Drive.</li><li>Sharepo=
+int ODS performance =E2=80=93 in progress. Scripts are ready but tests are waiting=
+ on QAPerf environment.</li></ul>
+<div><b><br>
+</b></div>
+<div><b>Platform</b></div>
+<ul>
+<li>Sanctioned user group story &nbsp;=E2=80=93 test planning and cases are writt=
+en . Basic testing started with old version of EC , however blocked with lat=
+est version due to EC blockers</li><li>Policy templates/Metadata story =E2=80=93 t=
+est planning done with Test case added. Testing in Progress</li><li>Zeus Per=
+formance =E2=80=93 In progress. Had some hiccups last week due to environment cons=
+traints. @Manoj, please add more if you have anything to add here.</li></ul>
+<div><br>
+</div>
+<div><b>Ad-Hoc</b></div>
+<ul>
+<li>Couple of HotFixes been released due to recent AIG Fix/Du-point issue.<=
+/li><li>Working with Andreas, Prasida on end to end use cases to be run on S=
+andbox environment. Coordinating with EP/OPS team for the same.&nbsp;</li></=
+ul>
+<div>Thanks</div>
+<div><br>
+</div>
+</body>
+</html>
+
+
+--B_3556019506_1688964389--
+
